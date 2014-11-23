@@ -1,0 +1,104 @@
+Use continuous values in CA cells:
+    Compute a step, apply it partially:
+        Instead of 0->1 it might be 0->0.1:
+            This fraction could be determined with cell weighting:
+                Weighting could also evolve
+ 
+Modularization:
+    Cells are arranged hierarchically:
+        Similar to quadtree/octree but instead size 2 it could be larger:
+            Eg: 4x4 cell-block where each cell is another 4x4 cell block
+            Multiple Levels/Layers
+    Modularity enables evolution of systems in parallel with small change of rules per child
+   
+The hierarchical segmentation:
+    Rules modified from parent propagated to child:
+        Evolution of numerous children under a single parent
+    Parent might have rule 10101010:
+        Child rules could be TL=11101010 TR= 10111010 BL=10101110 BR=10101011 or another type of change
+ 
+Neighborhood reaches across to a sibling:
+    Each of these sub-cells/parents have an entrance and exit:
+        Entrance/exit points come into play when outside cells attempt access:
+            Enter/Exit could use just one bit of data or more
+    We are at TL and our neighborhood requires a -1,-1 offset:
+        Get the BR of our sibling to the top left
+ 
+Pseudo Example:
+    Size: 4x4 for 2-deep 2D hierarchical system
+    Can input data at numerous points:
+        Treat it as one single cell     :Depth(0)
+        Treat it as 16 separate cells     :Depth(1)
+        Treat it as 256 separate cells     :Depth(2)
+    Want to learn to do XOR:
+        Choose one of the 16 separate cells:
+        Likely have to pad our data (00:01) (2 input bit XOR)
+        ???(00:01) == [pad][pad]:[0][1] = XOR expected result???
+        Pad so ???(input data)??? matches neighborhood shape/alignment at various depths
+        ???Treat this as a memorization or calculation???
+        Chosen cell mutates its 16 children's rules slightly
+        We now have a function on one cell and its mutants in sub-cells
+        Neighborhood function applies input data to each child cell
+        Children each apply their input function
+        ???Children partially overlap adjacent cells doing the same calculation???
+        Evolve each child to give separate attributes:
+            Some iterations in a cell might have low effect on change
+            Some cells could be used as memory modules:
+                Adjacent cells can access but cannot modify
+       
+    Want to learn to do XOR v2:
+        (00=0, 01=1, 10=1, 11=0)
+        Encode/Input 01 for testing/training for whether (01==1) (Input == Expected Output)
+        Pad the input data depending on neighborhood
+        Depth(0) has direct access to XOR module, Depth(1) has adjacent access to XOR module
+        ???So, partial access or potentially full access with large enough neighborhood???
+        CA comes up with the Input Data
+        '01' is input passed into one of Depth(1) child cells from external sources
+        Training input data is virtual cells placed above/around the cell:
+            EG: The line at x(0 to 3), y-1 of the cell's grid
+        input data is padded so that sibling-cell-references are aligned
+        Input example:
+            In:             00:10
+            Expected Out:     000:1
+       
+ 
+"Great, all good now"
+ 
+[SEE DIAGRAM SECTIONS 2 & 3 BELOW]
+ 
+Cell Evolution & Genetic Algorithms (GAs):
+    Evolve each child cell's IO ports & CA rule using some function
+    With every cell having mutated sub-cells, selection & depth(x) elevation can take place
+    Cells should be able to change a lot:
+        Slow, steady drift <=== Between ===> Sudden change
+    GA Pruning:
+        Reset/Weaken the worst x cells (Sigmoid?) and Strengthen the best cells:
+            Weakness means frequent change, Strong cells do not change
+    Need a function for creating additional child cells/attempting change:
+        Do this when learning is stuck
+   
+ 
+Cell arrangement through Depth(x):
+    [SEE DIAGRAM SECTION 4 BELOW]
+ 
+ 
+ 
+ 
+Program Structure Summary:
+    Calculate next world-state, applying a partial/continuous transformation to existing world-state
+    Each cell of the world-state is part of a 2^x-tree, consisting of nested hierarchical layers
+    CA has input&output function for passing signals in and extracting them.
+    Child cells are the same rule format as the parents, but have modified rulesets
+    Genetic algorithm - Evolutionary selection
+ 
+ 
+ 
+Mutual Platforms:
+    python, java, OpenCL, OpenGL
+ 
+Specialized Platforms:
+    Spread:
+        c++, rust, haskell, javascript
+ 
+Potential Platforms:
+    WebGL
