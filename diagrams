@@ -8,6 +8,7 @@ IB = Input bit
 OB = Output bit
  
 Could fold the space so they occupy the same location?
+  Would be interesting to try, I think we might need to come up with a few different ideas for how entry/exits could function. Could treat output as a sort of derivative maybe.
  
 1d line between IB and OB
  

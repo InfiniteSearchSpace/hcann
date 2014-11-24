@@ -16,6 +16,7 @@ The hierarchical segmentation:
         Evolution of numerous children under a single parent
     Parent might have rule 10101010:
         Child rules could be TL=11101010 TR= 10111010 BL=10101110 BR=10101011 or another type of change
+        The CA would have this rule modification rule as a static trait
  
 Neighborhood reaches across to a sibling:
     Each of these sub-cells/parents have an entrance and exit:
@@ -30,28 +31,29 @@ Pseudo Example:
         Treat it as one single cell     :Depth(0)
         Treat it as 16 separate cells     :Depth(1)
         Treat it as 256 separate cells     :Depth(2)
+
     Want to learn to do XOR:
         Choose one of the 16 separate cells:
-        Likely have to pad our data (00:01) (2 input bit XOR)
-        ???(00:01) == [pad][pad]:[0][1] = XOR expected result???
-        Pad so ???(input data)??? matches neighborhood shape/alignment at various depths
-        ???Treat this as a memorization or calculation???
+        Likely have to pad our data to the left and/or right to fit the size of our grid (00:01) (2 input bit XOR)
+        (00:01) == [pad][pad]:[0][1] = [pad][pad][pad][0]
+        Pad so that input data matches neighborhood shape/alignment at various depths
+        Our CA could evolve to solve this either with calculation or with pure memorization
         Chosen cell mutates its 16 children's rules slightly
         We now have a function on one cell and its mutants in sub-cells
         Neighborhood function applies input data to each child cell
         Children each apply their input function
-        ???Children partially overlap adjacent cells doing the same calculation???
+        Children's neighborhoods partially overlap adjacent cells doing the same calculation
         Evolve each child to give separate attributes:
             Some iterations in a cell might have low effect on change
             Some cells could be used as memory modules:
-                Adjacent cells can access but cannot modify
+                Adjacent cells can access but cannot modify (due to their modification weights being low?)
        
     Want to learn to do XOR v2:
         (00=0, 01=1, 10=1, 11=0)
         Encode/Input 01 for testing/training for whether (01==1) (Input == Expected Output)
         Pad the input data depending on neighborhood
         Depth(0) has direct access to XOR module, Depth(1) has adjacent access to XOR module
-        ???So, partial access or potentially full access with large enough neighborhood???
+        if neighborhood reaches across to hit our XOR cell depending on entry function we could have full access or partial access
         CA comes up with the Input Data
         '01' is input passed into one of Depth(1) child cells from external sources
         Training input data is virtual cells placed above/around the cell:
@@ -60,7 +62,7 @@ Pseudo Example:
         Input example:
             In:             00:10
             Expected Out:     000:1
-       
+
  
 "Great, all good now"
  
