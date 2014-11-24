@@ -1,0 +1,19 @@
+class ca {
+    base : cell
+    neighborhood : [(x, y)] 
+    base_rule : int
+
+    step : fn ()
+}
+
+class cell {
+    value : float
+    rule : int
+    rule_modifier : fn int(int) 
+    children : [[cell] * grid_width] * grid_height
+    weight : float
+    entry : fn ([cell])
+    exit : fn [cell]()
+
+    step : fn ()
+}
