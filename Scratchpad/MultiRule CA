@@ -1,0 +1,14 @@
+Every cell contains rule parameter references
+Every cell contains Neighbourhood references
+
+Smaller neighbourhoods cannot be killed by large neighbourhoods
+
+Current referenced neighbourhoods from living cells get overwritten if unoccupied by smaller neighbourhood
+
+CGoL Gliders could pierce ManyRing atoms uninhibited:
+    ManyRing atom can still reference CGoL cells, but cannot overrite neighbourhood/rule
+        Live CGoL cells 'protect' all referenced neighbourhood cells from overwrite
+        When small neighbourhood living cells move on and cells are no longer referenced, they can be overwritten
+
+I guess small-NHood rules would convert larger rules to be smaller rules step-by-step when life cells are impacted.
+Neat chain reactions incoming!

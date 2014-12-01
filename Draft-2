@@ -1,0 +1,114 @@
+Module Layers:
+    ["Host"] Action-Modules (AM): Contains CA-Module configuration instructions:
+        Cell reference Identity, 
+        Current Floatmap, 
+        I/O port references,
+        CA Initial Config settings,
+        CA Rule,
+        Input & Output storage,
+
+    ["Slave"] CA-Module (CAM): Recieves Inputs, performs according to its referenced Action-Module's config, and queues Outputs:
+        Only need one of these to service all modules (take turns), but many in parallel are faster
+
+
+CA-Module grid structure:
+    2^n sized n-dimensional container of discrete cells
+    Perform iterative integer computations in discrete timesteps
+    computations are mapped as slight modifications to the cell's float 'memory map'
+    computations are 'disposable', and can be repeated many times per AM invocation
+
+    what determines the grid's initial configuration?:
+        Blank?
+        Memory map intepretation? (float -> bool/int)
+        Random?
+        Preset?
+
+    Is the AM's stored IC setting reset for each AM invocation?
+
+    How much a computation timestep affects a floatmap:
+        Based on AM change-weighting:
+            Change-weightings based on cell performance/usefulness?
+            Should all cells strive to reach maximum strength?:
+                Is being a 'memory module' / 'set, unchanging function' always better?
+                Does a weak weighting, causing change, always cause detriment?
+                Tangental: Still life in CA == Memory module, Live structures(waves,gliders,etc) == computation?
+            Should change-weighting in AMs affect the weights of their referenced 'neighbours'?
+
+
+Hierarchical Modularization:
+    2^n-Tree of Action-Modules
+
+    Modularity enables evolution of systems in parallel:
+        Small change in config per child AM
+        Configs modified in parent propagated to children
+        Mutation & evolution of numerous children under a single parent
+        If parent is a failure, replace it with a child?
+
+
+------------------------------
+Storing the floatmap seems to invalidate the need for I/O ?!
+What does the floatmap do? What is its purpose?
+What does the I/O do? What is its purpose?
+I/O is redundent with Initial Configuration settings?
+
+Dynamic cell references remove the need for AM neighbourhoods?
+------------------------------
+
+
+Module Layers:
+    ["Host"] ActionPlan-Modules (APM): 
+        Contains CA-Module configuration instructions:
+            Cell reference Identity, 
+            Current FloatMap, 
+            CA Initial Config (IC) settings,
+            CA Rule,
+            Change-Weighting,
+
+    ["Slave"] CA-Module (CAM): 
+        Does the processing:
+            Sets FloatMap, IC, Chang-Weighting
+            Runs/Loops CA-Rule
+            Applies changes to FloatMap
+            Outputs FloatMap to APM
+        One CAM can service all APMs in series, but many CAMs in parallel are ideal
+
+
+CAM functionality:
+    2^n sized, n-dimensional container of bool/int cells
+    Perform iterative computations/timesteps:
+        Iterations mapped to FloatMap:
+            Slight modifications based on APM's Change-Weighting:
+                Change-Weightings based on APM's performance/usefulness?
+
+                Should all cells strive to reach maximum strength?:
+                    Is being a 'memory module' / 'unchanging FloatMap' always better?
+                    Is a weak weighting, causing change, always detrimental to present (parent's?) functionality?
+
+                    Tangental analogy: 
+                        Still life in CA == Memory module
+                        Live structures(waves,gliders,etc) == computation?
+
+
+APM's/CAM's initial configuration:
+    Blank?
+    1:1 FloatMap intepretation? (float -> bool/int)
+    Random?
+    Preset? (image data, text data, binary etc.)
+
+    Is a APM's stored IC setting reset for each CAM invocation?
+
+Hierarchical Modularization:
+    2^n-Tree of APMs
+
+    Modularity enables evolution of systems in parallel:
+        Small change in config per child APM
+        Configs modified in parent propagated to children:
+            In full?
+            Partially?
+            Sometimes?
+        Mutation & evolution of numerous children under a single parent
+        If parent is a failure, replace it with a child?
+        What other conditions for APM depth elevation could be used?
+
+
+

@@ -1,0 +1,16 @@
+ V    V      V    V
+[I1] [I1]   [I2] [I2]
+|  | |  |   |  | |  | <-- single CA cell. eg 1D elementary? 110?
+[O1] [O1]   [O2] [O2]
+ V    V      V    V
+[I3] [I3]   [I4] [I4]
+|  | |  |   |  | |  |
+[O3] [O3]   [O4] [O4]
+ V    V      V    V
+[I1] [I1]   [I2] [I2]
+|  | |  |   |  | |  |
+[O1] [O1]   [O2] [O2]
+ V    V      V    V
+[I3] [I3]   [I4] [I4]
+|  | |  |   |  | |  |
+[O3] [O3]   [O4] [O4]

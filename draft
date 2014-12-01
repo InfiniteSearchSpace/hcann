@@ -1,8 +1,8 @@
 Use continuous values in CA cells:
     Compute a step, apply it partially:
         Instead of 0->1 it might be 0->0.1:
-            This fraction could be determined with cell weighting:
-                Weighting could also evolve
+        This fraction could be determined with cell weighting:
+            Weighting could also evolve
  
 Modularization:
     Cells are arranged hierarchically:

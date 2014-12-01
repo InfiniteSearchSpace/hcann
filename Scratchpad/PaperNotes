@@ -1,0 +1,108 @@
+[ 0] [ 1] [ 2] [ 3]
+
+[ 4] [ 5] [ 6] [ 7]
+
+[ 8] [ 9] [10] [11]
+
+[12] [13] [14]([15])
+
+                /\
+               /  \
+             _/    \_
+           _/        \_
+          /   ([15])   \
+         /              \
+ 
+( [ 15-0]  [ 15-1]  [ 15-2]  [ 15-3]
+
+
+  [ 15-4]  [ 15-5]  [ 15-6]  [ 15-7]
+
+
+  [ 15-8]  [ 15-9]  [15-10]  [15-11]
+
+
+  [15-12]  [15-13]  [15-14]  [15-15] )
+
+
+Inter-cell Connection types
+
+Literal Output (Computational Cost)
+Referential Output ($ Cost)
+Back-referential: ($ Cost)
+    Depth(-1), cell 13:
+        Cells 11-14
+    Depth(-1), cell 4:
+        Cell 2
+Self-referential, recursive ($ Cost & Computational Cost)
+
+----------------------------------------
+
+Funds locked in escrow until:
+    Masternode arbitration
+    Task requester is satisfied
+
+Masternodes pay depositors/fund-stickers with arbiter fees
+bad nodes are not profitable
+
+----------------------------------------
+
+Amorphous computing/processing
+Asynchronus networks
+P2P networking
+Neural Networks
+Probabilistic Programming
+
+----------------------------------------
+
+Computation used / CA algo are public
+Blockchain identity to prove ownership & collect payment (crypto-patents) 
+Others are free to register forked/mutated versions to potential clients (by targeting those who use their ancestors)
+If a (freely provided) fork is cheaper, faster, more accurate, etc. and the client accepts it's output instead, the original escrow goes to forker
+Perhaps forks could also be messaged when work is requested, at a much-discounted price, like bundled reference-cell deals
+
+Who can provide the best image-edge-detection module / bundle?
+    Economic competition decides
+
+----------------------------------------
+----------------------------------------
+----------------------------------------
+
+Iterative checkpointed Neural Networks
+                                                        
+                                                        
+                                                        
+                                                        
+                         /\                             
+   /|/|    /|           /  \                            
+  |    \  | |/\        /    \__    ______              
+ /     |  |    |  /\  /        |  /      |  ...      
+[#######][######][##][##########][########][...
+
+# = hashed iteration
+[] = block in chain
+/\|_ = neural network states
+
+Hash(Work_Done, Module_ID, Overwrite_Threshold)
+HashSize(Security, Overwrite_Resistance) as a function of the number of iterations in blockchain branch
+POW, POS, Masternodes
+
+Blockchain forks encouraged
+
+Each node has a probability assigned based on how well it performs at a certain task (recorded in blockchain)
+Registration/participation recognises that this web of crypto trust agrees that the node will do as it advertises
+Each neuron/node pays for continued regestration each round
+
+Versions of modules depend on other versions of other modules
+unprofitable/unused nodes get deregestered, or must pay more to stay registered. "patent expires"
+
+Hash = "Proof that [ALGORITHM/CA] was used to generate the result"
+
+Overall system must GENERATE ABSTRACTIONS
+
+
+
+
+
+
+

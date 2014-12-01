@@ -1,0 +1,5 @@
+Inputs and Outputs
+
+ - Could have different data types/channels (bool, int, float, string, array)
+
+ - Could observe a statistical state of a whole module (Total Pop, total Sum, most common val etc)
