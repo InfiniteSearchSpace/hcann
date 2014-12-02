@@ -7,7 +7,7 @@ Module Layers:
         CA Rule,
         Input & Output storage,
 
-    ["Slave"] CA-Module (CAM): Recieves Inputs, performs according to its referenced Action-Module's config, and queues Outputs:
+    ["Slave"] CA-Module (CAM): Receives Inputs, performs according to its referenced Action-Module's config, and queues Outputs:
         Only need one of these to service all modules (take turns), but many in parallel are faster
 
 
@@ -19,7 +19,7 @@ CA-Module grid structure:
 
     what determines the grid's initial configuration?:
         Blank?
-        Memory map intepretation? (float -> bool/int)
+        Memory map interpretation? (float -> bool/int)
         Random?
         Preset?
 
@@ -31,7 +31,7 @@ CA-Module grid structure:
             Should all cells strive to reach maximum strength?:
                 Is being a 'memory module' / 'set, unchanging function' always better?
                 Does a weak weighting, causing change, always cause detriment?
-                Tangental: Still life in CA == Memory module, Live structures(waves,gliders,etc) == computation?
+                Tangential: Still life in CA == Memory module, Live structures(waves,gliders,etc.) == computation?
             Should change-weighting in AMs affect the weights of their referenced 'neighbours'?
 
 
@@ -49,7 +49,7 @@ Hierarchical Modularization:
 Storing the floatmap seems to invalidate the need for I/O ?!
 What does the floatmap do? What is its purpose?
 What does the I/O do? What is its purpose?
-I/O is redundent with Initial Configuration settings?
+I/O is redundant with Initial Configuration settings?
 
 Dynamic cell references remove the need for AM neighbourhoods?
 ------------------------------
@@ -84,14 +84,14 @@ CAM functionality:
                     Is being a 'memory module' / 'unchanging FloatMap' always better?
                     Is a weak weighting, causing change, always detrimental to present (parent's?) functionality?
 
-                    Tangental analogy: 
+                    Tangential analogy: 
                         Still life in CA == Memory module
                         Live structures(waves,gliders,etc) == computation?
 
 
 APM's/CAM's initial configuration:
     Blank?
-    1:1 FloatMap intepretation? (float -> bool/int)
+    1:1 FloatMap interpretation? (float -> bool/int)
     Random?
     Preset? (image data, text data, binary etc.)
 

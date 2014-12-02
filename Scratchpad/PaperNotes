@@ -48,7 +48,7 @@ bad nodes are not profitable
 ----------------------------------------
 
 Amorphous computing/processing
-Asynchronus networks
+Asynchronous networks
 P2P networking
 Neural Networks
 Probabilistic Programming
@@ -91,10 +91,10 @@ Blockchain forks encouraged
 
 Each node has a probability assigned based on how well it performs at a certain task (recorded in blockchain)
 Registration/participation recognises that this web of crypto trust agrees that the node will do as it advertises
-Each neuron/node pays for continued regestration each round
+Each neuron/node pays for continued registration each round
 
 Versions of modules depend on other versions of other modules
-unprofitable/unused nodes get deregestered, or must pay more to stay registered. "patent expires"
+unprofitable/unused nodes get deregistered, or must pay more to stay registered. "patent expires"
 
 Hash = "Proof that [ALGORITHM/CA] was used to generate the result"
 
